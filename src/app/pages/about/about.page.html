@@ -7,26 +7,23 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <div class="ion-text-center ion-margin-bottom">
-    <ion-icon name="information-circle-outline" style="font-size: 64px;" color="warning"></ion-icon>
-  </div>
+<ion-content class="ion-padding ion-text-center">
+  <div class="about-container">
+    <ion-icon name="info-icon" style="font-size: 64px; color: var(--ion-color-warning);"></ion-icon>
+    
+    <h1 class="simpson-font">Simpson Explorer</h1>
+    <p>Versión 1.0.0</p>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>{{ proyectoInfo.nombre }}</ion-card-title>
-      <ion-card-subtitle>Versión {{ proyectoInfo.version }}</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      <p>{{ proyectoInfo.descripcion }}</p>
-      <ion-list lines="none" class="ion-margin-top">
-        <ion-item>
-          <ion-label>
-            <strong>Desarrollado por:</strong>
-            <p>{{ proyectoInfo.desarrollador }}</p>
-          </ion-label>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
+    <ion-card mode="ios">
+      <ion-card-content>
+          Esta aplicación fue creada para explorar los personajes de Springfield 
+          <div>utilizando tecnologías modernas como Ionic y Angular Standalone</div>
+        <p style="margin-top: 15px; font-style: italic;">
+          "¡D'oh!" - Homer Simpson
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <p class="footer-text">Desarrollado con ❤️ para fans de Los Simpson.</p>
+  </div>
 </ion-content>

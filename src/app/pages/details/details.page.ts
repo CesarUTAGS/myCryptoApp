@@ -11,20 +11,14 @@ import {
   IonCard, 
   IonCardHeader, 
   IonCardTitle, 
-  IonCardSubtitle, 
-  IonCardContent, 
-  IonList, 
-  IonItem, 
-  IonLabel 
-} from '@ionic/angular/standalone';
-import { ApiService } from '../../services/api';
+  IonCardContent, IonCardSubtitle } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.page.html',
   styleUrls: ['./details.page.scss'],
   standalone: true,
-  imports: [
+  imports: [IonCardSubtitle, 
     CommonModule, 
     IonHeader, 
     IonToolbar, 
@@ -35,28 +29,23 @@ import { ApiService } from '../../services/api';
     IonCard, 
     IonCardHeader, 
     IonCardTitle, 
-    IonCardSubtitle, 
-    IonCardContent, 
-    IonList, 
-    IonItem, 
-    IonLabel
+    IonCardContent
   ]
 })
 export class DetailsPage implements OnInit {
-  id: string | null = null;
   character: any = null;
 
-  constructor(
-    private route: ActivatedRoute,
-    private apiService: ApiService
-  ) {}
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.id = this.route.snapshot.paramMap.get('id');
-    if (this.id) {
-      this.apiService.getCharacterById(this.id).subscribe((data) => {
-        this.character = data;
-      });
-    }
+    this.route.queryParams.subscribe(params => {
+      if (params && params['special']) {
+        try {
+          this.character = JSON.parse(params['special']);
+        } catch (e) {
+          console.error("Error al leer los datos del personaje", e);
+        }
+      }
+    });
   }
 }

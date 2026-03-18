@@ -1,37 +1,61 @@
-/*
- * App Global CSS
- * ----------------------------------------------------------------------------
- * Put style rules here that you want to apply globally. These styles are for
- * the entire app and not just one component. Additionally, this file can be
- * used as an entry point to import other CSS/Sass files to be included in the
- * output CSS.
- * For more information on global stylesheets, visit the documentation:
- * https://ionicframework.com/docs/layout/global-stylesheets
- */
-
-/* Core CSS required for Ionic components to work properly */
+/* 1. Importaciones obligatorias de Ionic (Solo una vez) */
 @import "@ionic/angular/css/core.css";
-
-/* Basic CSS for apps built with Ionic */
 @import "@ionic/angular/css/normalize.css";
 @import "@ionic/angular/css/structure.css";
 @import "@ionic/angular/css/typography.css";
 @import "@ionic/angular/css/display.css";
 
-/* Optional CSS utils that can be commented out */
+/* 2. Utilidades opcionales */
 @import "@ionic/angular/css/padding.css";
 @import "@ionic/angular/css/float-elements.css";
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
-
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+/* 3. Paleta de colores (Modo oscuro opcional) */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+/* -----------------------------------------------------------
+   PERSONALIZACIÓN SIMPSON
+   ----------------------------------------------------------- */
+
+/* A. Tipografía Global: Forzamos Comic Sans en TODO */
+* {
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive !important;
+}
+
+/* B. Estilo de los Avatares (Ajuste para que se vea el pelo) */
+ion-avatar {
+  --border-radius: 8px; /* Redondeado suave, no circular total */
+  background: #f0f0f0;
+  border: 2px solid #fed420; /* Borde amarillo Simpson */
+}
+
+/* C. Estilo del Menú Lateral */
+ion-menu {
+  ion-content {
+    --background: #ffffff;
+  }
+  
+  ion-title {
+    font-weight: bold;
+    color: #000;
+  }
+}
+
+/* D. Efectos en los Items (Hover amarillo Simpson) */
+ion-item {
+  --transition: 0.3s;
+  
+  &:hover {
+    --background: #fed420; /* Amarillo clásico de la serie */
+    color: #000;
+    cursor: pointer;
+  }
+}
+
+/* E. Ajuste para tarjetas (Cards) */
+ion-card {
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}

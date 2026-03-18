@@ -1,47 +1,70 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { NavigationExtras } from '@angular/router';
 import { 
-  IonHeader, 
-  IonToolbar, 
-  IonButtons, 
-  IonMenuButton, 
-  IonTitle, 
   IonContent, 
+  IonHeader, 
+  IonTitle, 
+  IonToolbar, 
   IonList, 
   IonItem, 
   IonAvatar, 
-  IonLabel 
+  IonLabel,
+  IonButtons,    
+  IonMenuButton, 
+  IonIcon, 
+  NavController 
 } from '@ionic/angular/standalone';
 import { ApiService } from '../../services/api';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
   standalone: true,
   imports: [
-    CommonModule, 
-    RouterModule, 
-    IonHeader, 
-    IonToolbar, 
-    IonButtons, 
-    IonMenuButton, 
-    IonTitle, 
-    IonContent, 
-    IonList, 
-    IonItem, 
-    IonAvatar, 
-    IonLabel
-  ]
+    CommonModule,
+    FormsModule,
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    IonList,
+    IonItem,
+    IonAvatar,
+    IonLabel,
+    IonButtons,
+    IonMenuButton
+]
 })
 export class HomePage implements OnInit {
   characters: any[] = [];
 
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private navCtrl: NavController
+  ) {}
 
   ngOnInit() {
-    this.apiService.getCharacters().subscribe((res: any) => {
-      this.characters = res.results;
+    this.loadSimpsonCharacters();
+  }
+
+  loadSimpsonCharacters() {
+    this.apiService.getCharacters().subscribe({
+      next: (res: any) => {
+        this.characters = res.docs; 
+      },
+      error: (err: any) => console.error('Error API:', err)
     });
+  }
+
+  verDetalle(personaje: any) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        special: JSON.stringify(personaje)
+      }
+    };
+    this.navCtrl.navigateForward(['/details'], navigationExtras);
   }
 }

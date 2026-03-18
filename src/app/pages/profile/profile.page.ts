@@ -2,20 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { 
-  IonContent, 
-  IonHeader, 
-  IonTitle, 
-  IonToolbar, 
-  IonButtons, 
-  IonMenuButton, 
-  IonAvatar, 
-  IonCard, 
-  IonCardHeader, 
-  IonCardTitle, 
-  IonCardContent, 
-  IonBadge 
+  IonContent, IonHeader, IonTitle, IonToolbar, 
+  IonButtons, IonMenuButton, IonAvatar, IonCard, 
+  IonCardHeader, IonCardTitle, IonCardContent, IonBadge 
 } from '@ionic/angular/standalone';
-import { DataService } from '../../services/data';
+import { DataService } from '../../services/data'; 
 
 @Component({
   selector: 'app-profile',
@@ -23,30 +14,21 @@ import { DataService } from '../../services/data';
   styleUrls: ['./profile.page.scss'],
   standalone: true,
   imports: [
-    CommonModule, 
-    FormsModule,
-    IonContent, 
-    IonHeader, 
-    IonTitle, 
-    IonToolbar, 
-    IonButtons, 
-    IonMenuButton, 
-    IonAvatar, 
-    IonCard, 
-    IonCardHeader, 
-    IonCardTitle, 
-    IonCardContent, 
-    IonBadge
+    CommonModule, FormsModule, 
+    IonContent, IonHeader, IonTitle, IonToolbar, 
+    IonButtons, IonMenuButton, IonAvatar, IonCard, 
+    IonCardHeader, IonCardTitle, IonCardContent, IonBadge
   ]
 })
 export class ProfilePage implements OnInit {
-  usuarioLogueado: string = 'Cargando...';
+  usuario: string = '';
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+
     this.dataService.currentUser.subscribe(user => {
-      this.usuarioLogueado = user;
+      this.usuario = user;
     });
   }
 }

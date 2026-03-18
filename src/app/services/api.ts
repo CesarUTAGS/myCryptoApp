@@ -6,16 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  private url = 'https://rickandmortyapi.com/api/character';
+
+  private url = 'https://apisimpsons.fly.dev/api/personajes?limit=250&page=1';
 
   constructor(private http: HttpClient) { }
 
   getCharacters(): Observable<any> {
     return this.http.get(this.url);
   }
-  
-  getCharacterById(id: string): Observable<any> {
-  return this.http.get(`${this.url}/${id}`);
-}
-
 }

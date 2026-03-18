@@ -10,10 +10,10 @@ import { IonicModule } from '@ionic/angular';
 })
 export class AboutPage {
   proyectoInfo = {
-    nombre: 'CryptoApp / Rick & Morty API Viewer',
+    nombre: 'My Simpson App / Los Simpson API Viewer',
     version: '1.0.0',
     desarrollador: 'Cesar Reynoso Morales 210003@utags.edu.mx',
-    descripcion: 'Aplicación desarrollada con Ionic y Angular - Examen Parcial 2'
+    descripcion: 'Aplicación desarrollada con Ionic y Angular - Uso de APIs públicas para mostrar información de personajes de Rick & Morty y cotizaciones de criptomonedas.'
   };
 
   constructor() {}

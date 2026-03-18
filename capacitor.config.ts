@@ -1,20 +1,12 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'myApp',
+  appId: 'com.simpson.app', 
+  appName: 'SimpsonApp',
   webDir: 'www',
   server: {
     androidScheme: 'https'
-  },
-  // Agrega esto:
-  
-  plugins: {
-    Keyboard: {
-      resize: 'body',
-      resizeOnFullScreen: true,
-    },
-  },
+  }
 };
-    
+
 export default config;

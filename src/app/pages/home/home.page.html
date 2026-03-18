@@ -1,19 +1,21 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="success"> 
+  <ion-toolbar color="warning">
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button> </ion-buttons> <ion-title>Personajes API</ion-title>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Los Simpson</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   <ion-list>
-    <ion-item *ngFor="let c of characters" [routerLink]="['/details', c.id]">
+    <ion-item *ngFor="let item of characters" (click)="verDetalle(item)" button="true" detail="true">
       <ion-avatar slot="start">
-        <img [src]="c.image" alt="imagen personaje"/>
+        <img [src]="item.Imagen" [alt]="item.Nombre" />
       </ion-avatar>
       <ion-label>
-        <h2>{{ c.name }}</h2>
-        <p>{{ c.species }}</p>
+        <h2>{{ item.Nombre }}</h2>
+        <p>{{ item.Ocupacion }}</p>
       </ion-label>
     </ion-item>
   </ion-list>

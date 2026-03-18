@@ -1,36 +1,28 @@
 <ion-header>
-  <ion-toolbar color="tertiary">
+  <ion-toolbar color="warning">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ character?.name || 'Detalles' }}</ion-title>
+    <ion-title>Detalle</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding" *ngIf="character">
-  <div class="ion-text-center ion-margin-bottom">
-    <img [src]="character.image" style="border-radius: 50%; width: 150px; border: 4px solid #7044ff;" alt="personaje" />
-  </div>
+<ion-content class="ion-padding">
+  <ion-card *ngIf="character" mode="ios" class="simpson-detail-card">
+    
+    <div class="img-container ion-text-center">
+      <img [src]="character.Imagen" [alt]="character.Nombre" class="character-img" />
+    </div>
 
-  <ion-card>
     <ion-card-header>
-      <ion-card-title>{{ character.name }}</ion-card-title>
-      <ion-card-subtitle>{{ character.species }}</ion-card-subtitle>
+      <ion-card-subtitle class="character-occupation">{{ character.Ocupacion }}</ion-card-subtitle>
+      <ion-card-title class="character-name">{{ character.Nombre }}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-      <ion-list lines="none">
-        <ion-item>
-          <ion-label>Estado: <strong>{{ character.status }}</strong></ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-label>Género: <strong>{{ character.gender }}</strong></ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-label>Origen: <strong>{{ character.origin.name }}</strong></ion-label>
-        </ion-item>
-      </ion-list>
+      <p class="character-history">
+        {{ character.Historia }}
+      </p>
     </ion-card-content>
   </ion-card>
-</ion-content> ```
-
+</ion-content>

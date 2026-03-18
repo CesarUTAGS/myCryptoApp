@@ -1,0 +1,54 @@
+/* Estilo para la tarjeta contenedora */
+.simpson-detail-card {
+  margin: 10px;
+  border-radius: 20px;
+  border: 2px solid #fed420; /* Borde amarillo Simpson */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  background: #ffffff;
+}
+
+/* --- ESTO ES LO QUE REDUCE LA IMAGEN --- */
+.img-container {
+  padding: 20px; /* Espaciado interno */
+  background: #fdfdfd; /* Fondo ligeramente gris para resaltar la imagen blanca */
+  border-bottom: 2px solid #f0f0f0;
+
+  .character-img {
+    /* ALTURA MÁXIMA CONTROLADA */
+    max-height: 200px; /* Ajusta este valor (150px, 180px, etc.) si la quieres aún más pequeña */
+    width: auto;       /* Mantiene la proporción */
+    display: inline-block;
+    
+    /* Pequeña sombra a la imagen para darle profundidad */
+    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.1));
+  }
+}
+
+/* Estilos para los textos en Comic Sans */
+ion-card-header {
+  padding-bottom: 10px;
+}
+
+.character-occupation {
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #777;
+  font-size: 0.8rem;
+}
+
+.character-name {
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive !important;
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: #000;
+  margin-top: 5px;
+}
+
+.character-history {
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive !important;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+  text-align: justify; /* Texto justificado para mejor lectura */
+}
